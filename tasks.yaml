@@ -1,0 +1,26 @@
+career_guidance:
+  description: >
+    Analyze user-provided skills and interests to suggest suitable career paths.
+    Ensure recommendations align with the latest job market trends in 2025.
+  expected_output: >
+    A list of 2-3 career options tailored to the user’s background, including:
+    - **Job Title & Description**
+    - **Key Required Skills**
+    - **Recommended Courses or Certifications**
+  output_key: career_suggestion  
+  agent: career_advisor
+
+job_market_insights:
+  description: >
+    Conduct market research to analyze hiring trends, salary benchmarks, and 
+    skill demands for a given job and career option suggested by `career_advisor`.
+  inputs:
+    career_suggestion: "{{career_guidance.career_suggestion}}" 
+  expected_output: >
+    A structured report including:
+    - **Hiring Demand** (Growing, Stable, Declining)
+    - **Top 5 In-Demand Skills**
+    - **Salary Estimates** (Entry, Mid, Senior)
+    - **Suggested Certifications or Courses**
+  output_file: job_market_report.md
+  agent: job_market_analyst
